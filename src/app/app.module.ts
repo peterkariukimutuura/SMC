@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { RouterModule, Routes } from '@angular/router';
 import {MaterialModule} from './app.material-module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,6 +39,10 @@ const appRoutes: Routes = [
     BrowserModule,
     MaterialModule,
     AppRoutingModule,
+
+    FormsModule,
+    ReactiveFormsModule,
+
     BrowserAnimationsModule,
     StoreModule.forRoot(reducers, {
       metaReducers,

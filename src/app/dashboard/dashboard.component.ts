@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder,FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  bookingForm;
+
+  constructor(private formBuilder: FormBuilder) {
+  	this.bookingForm = this.formBuilder.group({
+  		name:"",
+		contact:"",
+		time:"",
+		numberofpassengers:"",
+		price:"",
+		rating:""
+  	})
+  }
+
 
   ngOnInit() {
+  }
+
+  onSubmit(bookingData) {
+    // Process checkout data here
+    console.warn('Data provided ', bookingData);
+
+    // this.items = this.cartService.clearCart();
+    // this.checkoutForm.reset();
   }
 
 }

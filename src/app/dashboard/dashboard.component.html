@@ -1,11 +1,29 @@
-<!-- <mat-toolbar color="primary">
-	<mat-toolbar-row>
-		<button mat-button [matMenuTriggerFor]="menu">Menu</button>
-		<mat-menu #menu="matMenu">
-		  <button mat-menu-item>Item 1</button>
-		  <button mat-menu-item>Item 2</button>
-		</mat-menu>
-	</mat-toolbar-row>
-</mat-toolbar> -->
+<div class="container">
+	<form class="example-form"  [formGroup]="bookingForm" (ngSubmit)="onSubmit(bookingForm.value)">
+		<mat-form-field class="example-full-width">
+			<input matInput type="text" formControlName="name" placeholder="Passenger Name" required>
+		</mat-form-field>
 
-<p>dashboard works!</p>
+		<mat-form-field class="example-full-width">
+			<input matInput type="text" formControlName="contact" placeholder="Contact Number" required>
+		</mat-form-field>
+
+		<mat-form-field class="example-full-width">
+			<input matInput type="time" formControlName="time" placeholder="Pick up Time" required>
+		</mat-form-field>
+
+		<mat-form-field class="example-full-width">
+			<input matInput type="number" formControlName="numberofpassengers" min="1" placeholder="Number of Passengers" required>
+		</mat-form-field>
+
+		<mat-form-field class="example-full-width">
+			<input matInput type="number" formControlName="price" min="1" placeholder="Price" required>
+		</mat-form-field>
+
+		<mat-form-field class="example-full-width">
+			<input matInput type="number" formControlName="rating" min="1" max="100" placeholder="Rating" required>
+		</mat-form-field>
+
+		<button mat-raised-button color="accent" type="submit">Submit</button>
+	</form>
+</div>
