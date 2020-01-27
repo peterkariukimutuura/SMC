@@ -13,3 +13,7 @@
 	padding: 20px;
 	/*background-color: #9c9c9cf5;*/
 }
+
+.success-small{
+	color: green;margin-left: 30px;
+}

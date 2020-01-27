@@ -13,8 +13,13 @@ export class DashboardComponent implements OnInit {
 
   edit:Boolean = false;
 
+  success: Boolean;
 
-  constructor(private formBuilder: FormBuilder , private bookingService : BookingService) {
+
+  constructor(
+  	private formBuilder: FormBuilder , 
+  	private bookingService : BookingService 
+  	) {
   	this.bookingForm = this.formBuilder.group({
   		name:['', Validators.required],
 		contact:['', Validators.required],
@@ -35,6 +40,9 @@ export class DashboardComponent implements OnInit {
 	  	bookingData.id = Math.floor(Date.now() / 1000);
 	  	this.bookingService.addbooking(bookingData);
 
+	  	this.bookingForm.reset();
+	  	this.success=true;
+  	}else{
   	}
   }
 
