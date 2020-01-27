@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup } from '@angular/forms';
+import {BookingService} from '../services/booking.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +11,7 @@ export class DashboardComponent implements OnInit {
 
   bookingForm;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder , private bookingService : BookingService) {
   	this.bookingForm = this.formBuilder.group({
   		name:"",
 		contact:"",
@@ -26,6 +27,7 @@ export class DashboardComponent implements OnInit {
   }
 
   onSubmit(bookingData) {
+  	this.bookingService.addbooking(bookingData);
     // Process checkout data here
     console.warn('Data provided ', bookingData);
 
