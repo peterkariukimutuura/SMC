@@ -6,7 +6,9 @@ import {
 	MatButtonModule,
 	MatFormFieldModule,
 	MatSelectModule,
-	MatInputModule 
+	MatInputModule,
+	MatListModule,
+	MatTableModule 
 
  } from '@angular/material';
 
@@ -17,7 +19,9 @@ import {
     MatFormFieldModule,
     MatToolbarModule,
     MatSelectModule,
-    MatInputModule 
+    MatInputModule,
+    MatListModule,
+    MatTableModule
   ]
 })
 export class MaterialModule {}
