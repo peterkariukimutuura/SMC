@@ -40,9 +40,32 @@
     <td mat-cell *matCellDef="let element"> {{element.rating}} </td>
   </ng-container>
 
+  <!-- Action Column -->
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef> Action </th>
+    <td mat-cell *matCellDef="let element"> 
+    	<button mat-stroked-button color="primary" (click)="EditBooking(element)">Edit</button>
+    	|| 
+    	<button mat-stroked-button color="warn">Delete</button>
+    </td>
+
+    
+  </ng-container>
+<!-- 	  <ng-container matColumnDef="disclaimer" *ngIf="dataSource.length === 0">
+	    <td mat-footer-cell *matFooterCellDef colspan="7" class="text-center">
+	      No records Found.
+	    </td>
+	  </ng-container> -->
+<!-- 
+	<ng-container matColumnDef="noRecord">
+	      <td mat-footer-cell *matFooterCellDef>No records found.</td>
+	</ng-container> -->
+
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <!-- <tr mat-footer-row  *matFooterRowDef="['disclaimer']" ></tr> -->
 </table>
+<div  *ngIf="dataSource.length === 0" class="text-center">No records Found.</div>
 
 
 

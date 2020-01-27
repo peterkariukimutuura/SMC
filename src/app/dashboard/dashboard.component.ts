@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder,FormGroup } from '@angular/forms';
+import { FormBuilder,FormGroup,Validators  } from '@angular/forms';
 import {BookingService} from '../services/booking.service';
 
 @Component({
@@ -9,16 +9,19 @@ import {BookingService} from '../services/booking.service';
 })
 export class DashboardComponent implements OnInit {
 
-  bookingForm;
+  bookingForm: any;
+
+  edit:Boolean = false;
+
 
   constructor(private formBuilder: FormBuilder , private bookingService : BookingService) {
   	this.bookingForm = this.formBuilder.group({
-  		name:"",
-		contact:"",
-		time:"",
-		numberofpassengers:"",
-		price:"",
-		rating:""
+  		name:['', Validators.required],
+		contact:['', Validators.required],
+		time:['', Validators.required],
+		numberofpassengers:['', Validators.required],
+		price:['', Validators.required],
+		rating:['', Validators.required]
   	})
   }
 
@@ -27,12 +30,12 @@ export class DashboardComponent implements OnInit {
   }
 
   onSubmit(bookingData) {
-  	this.bookingService.addbooking(bookingData);
-    // Process checkout data here
-    console.warn('Data provided ', bookingData);
 
-    // this.items = this.cartService.clearCart();
-    // this.checkoutForm.reset();
+  	if (this.bookingForm.dirty && this.bookingForm.valid) {
+	  	bookingData.id = Math.floor(Date.now() / 1000);
+	  	this.bookingService.addbooking(bookingData);
+
+  	}
   }
 
 }
